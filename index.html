@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Front End Test</title>
+        <style>
+            html {position: relative;min-height: 100%;}
+            body {margin-bottom: 60px;}
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="page-header">
+                <h1>Front End Test Final</h1>
+            </div>
+
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <td>
+                        Nim
+                    </td>
+                    <td>
+                        Nama
+                    </td>
+                </tr>
+            </thead>
+            <tbody id="tablerows"></tbody>
+        </table>
+        <script>
+            fetch('http://localhost:3000/mhs', {
+                mode:"cors",
+                method:"GET"
+            })
+            .then(response => response.json())
+            .then(res => {
+                const data = res;
+                //console.log(res)
+                let rows='';
+                data.forEach(function(mhs) {
+                    console.log(mhs.nim)
+                    rows+='<tr><td>'+mhs.nim+'</td><td>'+mhs.nama+'</td></tr>'
+                })
+                console.log(rows)
+                document.getElementById("tablerows").innerHTML=rows;
+            })
+            .catch(error => console.error(error));
+        </script>
+
+    </body>
+</html>
