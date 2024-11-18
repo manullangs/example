@@ -3,12 +3,12 @@ on:
  push:
  branches: [ "main" ]
  pull_request:
- branches: [ "main" ]
+  branches: [ "main" ]
 env:
  # Use docker.io for Docker Hub if empty
  REGISTRY: docker.io
  # dockerhub.repository as <account>/<repo>
- IMAGE_NAME: ${{ secrets.DOCKER_USERNAME }}/node-client_app
+ IMAGE_NAME: ${{ secrets.DOCKER_USERNAME }}/example-web
 jobs:
  build:
  runs-on: ubuntu-latest
